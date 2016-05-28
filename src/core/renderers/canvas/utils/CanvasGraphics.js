@@ -187,6 +187,18 @@ CanvasGraphics.renderGraphics = function (graphics, context)
                 context.stroke();
             }
         }
+        else if (data.type === CONST.SHAPES.INFINITE)
+        {
+            if (data.fillColor || data.fillColor === 0)
+            {
+                context.save();
+                context.setTransform(1, 0, 0, 1, 0, 0);
+                context.globalAlpha = data.fillAlpha * worldAlpha;
+                context.fillStyle = '#' + ('00000' + ( fillColor | 0).toString(16)).substr(-6);
+                context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+                context.restore();
+            }
+        }
     }
 };
 

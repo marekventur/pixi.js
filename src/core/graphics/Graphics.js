@@ -628,6 +628,18 @@ Graphics.prototype.drawEllipse = function (x, y, width, height)
 };
 
 /**
+ * Draws every pixel.
+ *
+ * @return {PIXI.Graphics}
+ */
+Graphics.prototype.drawEverything = function ()
+{
+    this.drawShape(new math.InfiniteShape());
+
+    return this;
+};
+
+/**
  * Draws a polygon using the given path.
  *
  * @param path {number[]|PIXI.Point[]} The path data used to construct the polygon.

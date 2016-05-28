@@ -1,0 +1,34 @@
+Adds ```PIXI.InfiniteShape``` and ```Graphics.drawEverything()```.
+
+```PIXI.InfiniteShape``` is basically the oposite to ```PIXI.Rectangle.EMPTY```. Used as a hitArea it will always catch, used as a shape for Canvas it will fill the whole canvas.
+
+We have quite a few cases in our codebase where we want to "dim" the whole screen and catch all clicks (modal dialogs, etc):
+
+```
+class ModalOverlay extends PIXI.Graphics {
+    constructor() {
+        super();
+        this.hitArea = new PIXI.Rect(-100000, -100000, 200000, 200000); // This is quite hacky
+        this.fillColor = 0x000000;
+        this.fillAlpha = 0.8;
+        this.drawShape(this.hitArea);
+    }
+}
+```
+
+With this PR we can do this instead:
+
+```
+class ModalOverlay extends PIXI.Graphics {
+    constructor() {
+        super();
+        this.hitArea = new PIXI.InfiniteShape();
+        this.fillColor = 0x000000;
+        this.fillAlpha = 0.8;
+        this.drawEverything(); // Alternatively: this.drawShape(this.hitArea);
+    }
+}
+```
+
+Disclaimer: I'm unsure about those two names. Suggestions are welcome.
+

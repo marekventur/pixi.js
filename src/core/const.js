@@ -204,13 +204,15 @@ var CONST = {
      * @property {object} SHAPES.CIRC=2
      * @property {object} SHAPES.ELIP=3
      * @property {object} SHAPES.RREC=4
+     * @property {object} SHAPES.INFINITE=5
      */
     SHAPES: {
         POLY: 0,
         RECT: 1,
         CIRC: 2,
         ELIP: 3,
-        RREC: 4
+        RREC: 4,
+        INFINITE: 5
     },
 
     // TODO: maybe change to SPRITE.BATCH_SIZE: 2000

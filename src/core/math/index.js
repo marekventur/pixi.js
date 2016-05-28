@@ -17,5 +17,6 @@ module.exports = {
     Ellipse:    require('./shapes/Ellipse'),
     Polygon:    require('./shapes/Polygon'),
     Rectangle:  require('./shapes/Rectangle'),
+    InfiniteShape:  require('./shapes/InfiniteShape'),
     RoundedRectangle: require('./shapes/RoundedRectangle')
 };
